@@ -80,8 +80,17 @@ type (
 		main effectMain
 		// handle is OS-specific.
 		handle
-		Name string
-		Path string
+		Name                string
+		Path                string
+		DispatchBeforeStart []PluginOpcode
+	}
+
+	PluginOpcode struct {
+		Opcode EffectOpcode
+		Index  Index
+		Value  Value
+		Ptr    Ptr
+		Opt    Opt
 	}
 
 	// Plugin is VST2 plugin instance.

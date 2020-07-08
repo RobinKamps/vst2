@@ -31,6 +31,11 @@ func (p *Processor) Process(pipeID string, sampleRate signal.SampleRate, numChan
 
 	p.plugin.SetSampleRate(int(p.sampleRate))
 	p.plugin.SetSpeakerArrangement(newSpeakerArrangement(p.numChannels), newSpeakerArrangement(p.numChannels))
+
+	for _, d := range p.DispatchBeforeStart {
+		p.plugin.Dispatch(d.Opcode, d.Index, d.Value, d.Ptr, d.Opt)
+	}
+	
 	p.plugin.Start()
 	var size int
 	var out signal.Float64
