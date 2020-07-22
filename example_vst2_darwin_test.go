@@ -75,4 +75,10 @@ func ExampleDarwin() {
 	plugin.ProcessDouble(in, out)
 	// Copy processed data.
 	out.CopyTo(data)
+
+	// Output:
+	// Received opcode: HostGetCurrentProcessLevel
+	// Received opcode: HostGetTime
+	// Received opcode: hostWantMidi
+	// Received opcode: HostGetCurrentProcessLevel
 }
