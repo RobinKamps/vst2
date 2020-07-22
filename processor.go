@@ -76,7 +76,6 @@ func (p *Processor) Flush(string) error {
 // wraped callback with session.
 func (p *Processor) callback() HostCallbackFunc {
 	return func(opcode HostOpcode, index Index, value Value, ptr Ptr, opt Opt) Return {
-		fmt.Printf("Callback: %v\n", opcode)
 		switch opcode {
 		case HostIdle:
 			p.plugin.Dispatch(EffEditIdle, 0, 0, nil, 0)
